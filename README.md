@@ -1,4 +1,4 @@
-# RunCPM_Pico_DVI_USB_Keyboard
+# RunCPM_Pico_DVI_USB_Keyboard + digital I/O 
 ### Summary
 
 This is a Raspberry Pi Pico (RP2040) ported version of RunCPM (Z80 CP/M emulator) that incorporates PicoDVI and USB Host (USB OTG) to support output to an HDMI display and input from a USB keyboard. 
@@ -9,6 +9,20 @@ RunCPM (Z80 CP/M Emulator Arduino RP2040)
 ### 概要
 
 これは、RunCPM (Z80 CP/M エミュレータ)の Raspberry Pi Pico (RP2040) 移植版に、PicoDVI と USB Host (USB OTG) を組み込んで、HDMIディスプレイへの出力とUSBキーボードからの入力に対応させたものです。
+デジタル出力をできるように改造しました。
+
+###　デジタル出力
+Z80のOUT 命令でアドレス0に書き込むと、PICOの次のポートに出力されます。<br>
+* 	 GPIO6 : bit0<br>
+* 	 GPIO7: bit1<br>
+* 	 GPIO8: bit2<br>
+* 	 GPIO9: bit3<br>
+* 	 GPIO10:bit4<br>
+* 	 GPIO11:bit5<br>
+* 	 GPIO20:bit6<br>
+* 	 GPIO21:bit7<br>
+
+入力用にも拡張予定です。
 
 ### 注意事項
 
