@@ -484,6 +484,18 @@ uint8 _sys_makedisk(uint8 drive) {
 /* Hardware abstraction functions */
 /*===============================================================================*/
 void _HardwareOut(const uint32 Port, const uint32 Value) {
+#ifdef USE_PARALLEL_PORT
+	if (Port == 0) {
+		digitalWrite(PORT_B0, (Value >> 0)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B1, (Value >> 1)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B2, (Value >> 2)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B3, (Value >> 3)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B4, (Value >> 4)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B5, (Value >> 5)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B6, (Value >> 6)&1 ? HIGH : LOW);
+		digitalWrite(PORT_B7, (Value >> 7)&1 ? HIGH : LOW);
+	}
+#endif
 
 }
 

@@ -20,6 +20,19 @@
 
 #include "globals.h"
 
+#define USE_PARALLEL_PORT
+// parallel port
+#ifdef USE_PARALLEL_PORT
+#define PORT_B0 (6)
+#define PORT_B1 (7)
+#define PORT_B2 (8)
+#define PORT_B3 (9)
+#define PORT_B4 (10)
+#define PORT_B5 (11)
+#define PORT_B6 (20)
+#define PORT_B7 (21)
+#endif
+
 //#define USE_VT100
 
 #ifdef USE_VT100
@@ -49,11 +62,11 @@
 // =========================================================================================
 // Startup Messages Text (please write it yourself)
 // =========================================================================================
-#define PICO_OR_W "Pico 2"
-#define PICOCORE_VER "v0.0.0"
-#define SDFAT_VER "v0.0.0"
-#define PICODVI_VER "v0.0.0"
-#define TINYUSB_VER "v0.0.0"
+#define PICO_OR_W "Pico"
+#define PICOCORE_VER "v4.5.1"
+#define SDFAT_VER "v2.3.0"
+#define PICODVI_VER "v1.3.0"
+#define TINYUSB_VER "v3.4.4"
 
 
 // =========================================================================================
@@ -98,6 +111,21 @@ int lst_open = FALSE;
 void setup(void) {
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
+//
+// GPIO port control via IN/OUT morecat_lab
+// 
+#ifdef USE_PARALLEL_PORT
+  pinMode(PORT_B0,OUTPUT);
+  pinMode(PORT_B1,OUTPUT);
+  pinMode(PORT_B2,OUTPUT);
+  pinMode(PORT_B3,OUTPUT);
+  pinMode(PORT_B4,OUTPUT);
+  pinMode(PORT_B5,OUTPUT);
+  pinMode(PORT_B6,OUTPUT);
+  pinMode(PORT_B7,OUTPUT);
+
+  //digitalWrite(PORT_B0,HIGH);
+#endif
 
 // =========================================================================================
 // Serial Port Definition
