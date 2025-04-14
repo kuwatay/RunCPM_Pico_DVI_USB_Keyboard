@@ -31,6 +31,12 @@
 #define PORT_B5 (11)
 #define PORT_B6 (20)
 #define PORT_B7 (21)
+
+uint32 port_b[] = {PORT_B0,PORT_B1,PORT_B2,PORT_B3,PORT_B4,PORT_B5,PORT_B6,PORT_B7};
+uint32 port_b_out = 0x00;
+uint32 port_b_in  = 0x00;
+uint32 port_b_ddr = 0x00; // ALL INPUT
+uint32 port_b_pup = 0x00; // no pull-up
 #endif
 
 //#define USE_VT100
@@ -115,14 +121,9 @@ void setup(void) {
 // GPIO port control via IN/OUT morecat_lab
 // 
 #ifdef USE_PARALLEL_PORT
-  pinMode(PORT_B0,OUTPUT);
-  pinMode(PORT_B1,OUTPUT);
-  pinMode(PORT_B2,OUTPUT);
-  pinMode(PORT_B3,OUTPUT);
-  pinMode(PORT_B4,OUTPUT);
-  pinMode(PORT_B5,OUTPUT);
-  pinMode(PORT_B6,OUTPUT);
-  pinMode(PORT_B7,OUTPUT);
+  for (int i = 0 ; i <8 ; i++) {
+    pinMode(port_b[i],INPUT);  // set all 'input'
+  }
 
   //digitalWrite(PORT_B0,HIGH);
 #endif
