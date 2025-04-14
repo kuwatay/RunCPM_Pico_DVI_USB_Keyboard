@@ -12,8 +12,9 @@ RunCPM (Z80 CP/M Emulator Arduino RP2040)
 デジタル出力をできるように改造しました。
 
 ###　デジタル出力
+IO address 0: Data register<br>
 Z80のOUT 命令でアドレス0に書き込むと、PICOの次のポートに出力されます。<br>
-* 	 GPIO6 : bit0<br>
+* 	 GPIO6: bit0<br>
 * 	 GPIO7: bit1<br>
 * 	 GPIO8: bit2<br>
 * 	 GPIO9: bit3<br>
@@ -22,7 +23,8 @@ Z80のOUT 命令でアドレス0に書き込むと、PICOの次のポートに�
 * 	 GPIO20:bit6<br>
 * 	 GPIO21:bit7<br>
 
-入力用にも拡張予定です。
+IO address 1: DDR register<br>
+IO address 2: Pull-up register<br>
 
 ### 注意事項
 
